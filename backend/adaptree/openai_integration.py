@@ -60,7 +60,7 @@ def extract_branch(text):
             branch_name, branch_description = match.groups()
             data_dict[branch_name] = branch_description
 
-    json_object = json.dumps(yes, indent = 4)
+    json_object = json.dumps(data_dict, indent = 4)
 
     return json_object
 
