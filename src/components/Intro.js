@@ -8,8 +8,34 @@ const Intro = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // ... (your existing code for handling form submission)
-  };
+
+    // Create a data object with the form values
+    const data = {
+      name: name,
+      email: email,
+      major: major,
+      interest: interest,
+    };
+
+  try {
+    const response = await fetch("http://localhost:8000/create/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log("Data successfully sent to the server:", result);
+    } else {
+      console.error("Failed to send data to the server.");
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+};
 
   return (
     <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
