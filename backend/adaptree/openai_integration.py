@@ -1,16 +1,18 @@
 import openai
 import json
+import re
 from django.conf import settings
 
 # Initialize OpenAI API
+# settings.configure()
 openai.api_key = settings.OPENAI_API_KEY
 
 def get_gpt_response(user_name, user_major, user_interest):
     # Construct the prompt
     prompt_text = f"""For someone with a {user_major} background like {user_name}, provide a succinct overview on {user_interest}. Focus on one main topic, two primary subtopics, and two sub-branches for each primary subtopic. Stick to the format:
     
-Root: [Root Name] 
-Root Description: [Brief Root Description]
+Branch 0: [Branch 0 Name] 
+Branch 0 Description: [Brief Branch 0 Description]
 
 Branch 1: [Branch 1 Name]
 Branch 1 Description: [Brief Branch 1 Description]
@@ -30,7 +32,6 @@ Branch 2.1 Description: [Brief Branch 2.1 Description]
 Branch 2.2: [Branch 2.2 Name]
 Branch 2.2 Description: [Brief Branch 2.2 Description]
 
-Output a "END" at the end of the Branch 2.2 description
 """
 
     # Send the API request
@@ -44,7 +45,22 @@ Output a "END" at the end of the Branch 2.2 description
         print(f"Error encountered: {e}")
         return None
 
-def extract_branch(text, start_pattern, end_pattern):
-    start_index = text.find(start_pattern) + len(start_pattern)
-    end_index = text.find(end_pattern)
-    return text[start_index:end_index].strip()
+def extract_branch(text):
+    # Split the input text into lines
+    lines = text.split('\n')
+
+    # Initialize an empty dictionary to store the data
+    data_dict = {}
+
+    for line in lines:
+        # Use regular expressions to match lines with the format '[Branch Name]: [Brief Branch Description]'
+        match = re.match(r'([^:]+):\s(.+)', line)
+
+        if match:
+            branch_name, branch_description = match.groups()
+            data_dict[branch_name] = branch_description
+
+    json_object = json.dumps(yes, indent = 4)
+
+    return json_object
+
