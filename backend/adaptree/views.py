@@ -28,12 +28,12 @@ def create(request):
                     record = AdapTree.objects.get(email=data['email'])
                     record.name = data['name']
                     record.major = data['major']
-                    record.interests.append(data['interests']) #= record.interests['interests'].append(data['interests'])
+                    record.interests.append(data['interests'][0]) #= record.interests['interests'].append(data['interests'])
                     record.save()
 
                 else:
                     instance = AdapTree(email=data['email'], name=data['name'], major=data['major'],
-                                    interests=data['interests'])
+                                    interests=[data['interests'][0]])
                     instance.save()
 
                 gptresponse = openai_integration.get_gpt_response(data['name'], data['major'], data['interests'])
