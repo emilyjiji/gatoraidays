@@ -19,6 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+# open ai api key
+OPENAI_API_KEY = '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'
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ueotk5+qpgf*et69y9x2ti*$vdfexaqofuwjnz0y&h907jrt#1'
 
@@ -77,9 +80,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test', 
+        'NAME': 'adaptree', 
         'USER': 'postgres',
-        'PASSWORD': 'ani123',
+        'PASSWORD': 'adaptree',
         'HOST': 'localhost', 
         'PORT': '5432',
     }

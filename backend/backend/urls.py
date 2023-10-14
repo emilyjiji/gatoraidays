@@ -21,4 +21,5 @@ from adaptree import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('create/', views.create, name='create'),
+    path('openai-response/', views.openai_response, name='openai-response'),
 ]
