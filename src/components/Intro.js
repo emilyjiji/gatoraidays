@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Intro = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [major, setMajor] = useState("");
   const [interest, setInterest] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ const Intro = () => {
     } else {
       console.error("Failed to send data to the server.");
     }
+    navigate("/main");
   } catch (error) {
     console.error("An error occurred:", error);
   }
