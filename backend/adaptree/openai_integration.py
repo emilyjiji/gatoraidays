@@ -4,7 +4,7 @@ import re
 from django.conf import settings
 
 # Initialize OpenAI API
-settings.configure()
+# settings.configure()
 openai.api_key = settings.OPENAI_API_KEY
 
 def get_gpt_response(user_name, user_major, user_interest):
