@@ -75,7 +75,18 @@ const ChatInput = () => {
         const result = await response.json();
         console.log("Data successfully sent to the server:", result);
         console.log(data);
-        setDisplayText(JSON.parse(result).explanation);
+        
+        var og = JSON.parse(result).explanation
+        const modifiedString = og
+          .replace("Background:", "Background:\n")
+          .replace("Further", "\n\nFurther")
+          .replace("Overview:", "Overview:\n")
+          .replace("Relationship:", "\n\nRelationship:")
+          .replace("Additional:", "Additional:\n")
+          .replace("Explored:", "Explored:\n");
+        var why = modifiedString.split('\n').map(str => <p>{str}</p>);
+        setDisplayText(why);
+        console.log(modifiedString)
       } else {
         console.error("Failed to send data to the server.");
       }
@@ -152,7 +163,7 @@ const ChatInput = () => {
           console.log(data);
           setDisplayText(JSON.parse(result).feedback);
           setTextInput("");
-          setEntryDisplayText("Review feedback for your response!")
+          setEntryDisplayText("Review feedback and adapt your response!")
         } else {
           console.error("Failed to send data to the server.");
         }
