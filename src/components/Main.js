@@ -2,42 +2,42 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import ChatInput from "./ChatInput";
+import './custom.css';
 
 const Main = () => {
-  const location = useLocation();
-  const formData = location.state ? location.state.formData : null;
-  const response = location.state ? location.state.response : null;
+    const location = useLocation();
+    const formData = location.state ? location.state.formData : null;
+    const response = location.state ? location.state.response : null;
 
-  console.log("Form Data: ", formData);
-  console.log("Response Data:", response);
+    console.log("Form Data: ", formData);
+    console.log("Response Data:", response);
 
-  return (
-    <div className="main">
-      <div className="container-fluid">
-        <div className="row">
-          {/* Sidebar */}
-          <Sidebar />
+    return (
+        <div className="main" >
+            <div className="container-fluid">
+                <div className="row ">
+                    {/* Sidebar */}
+                    <Sidebar />
 
-          {/* Main Content */}
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Main</h1>
-            {formData && (
-              <div>
-                <h2>Form Data:</h2>
-                <ul>
-                  <li>Name: {formData.name}</li>
-                  <li>Email: {formData.email}</li>
-                  <li>Major: {formData.major}</li>
-                  <li>Interest: {formData.interests}</li>
-                </ul>
-              </div>
-            )}
-          </main>
+                    {/* Main Content */}
+                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex justify-content-center mt-5">
+                        <div style={{ width: "100%", textAlign: "center", marginLeft: "10px", }}>
+                            <h1>Welcome To AdapTree!!!</h1>
+                            {formData && (
+                                <div>
+                                    <h4 className="mt-4">
+                                        Here is an overview for your interest: {formData.interest}
+                                        Click on the leaf to learn more:
+                                    </h4>
+                                </div>
+                            )}
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <ChatInput />
         </div>
-      </div>
-      <ChatInput />
-    </div>
-  );
+    );
 };
 
 export default Main;
