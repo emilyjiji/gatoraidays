@@ -22,7 +22,7 @@ const Main = () => {
 
       <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div className="row">
-          <div className="col-12 custom-main-container d-flex align-items-center justify-content-center" style={{ height: '84vh', backgroundColor: '#E8FFED', borderBottom: '1px solid #000' }}>
+          <div className="col-12 custom-main-container d-flex align-items-center justify-content-center" style={{ height: '86vh', backgroundColor: '#E8FFED', borderBottom: '1px solid #000' }}>
             <div>
               <h1 className="text-center pb-4">Welcome To AdapTree!</h1>
               {formData && (
