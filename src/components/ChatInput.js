@@ -62,17 +62,6 @@ const ChatInput = () => {
   return (
     <div className="container-fluid fixed-bottom mb-5">
       {/* Buttons */}
-      <div className="row">
-        <div className="custom-bc col-12 d-flex justify-content-center" >
-          <div className="image-container" >
-            <img
-              src={process.env.PUBLIC_URL + '/images/main-nodes.png'}
-              alt="Node Image"
-              style={{ width: "40%", height: "auto", marginLeft: "523px", marginBottom: "260px" }}
-            />
-          </div>
-        </div>
-      </div>
       <div className="container-fluid">
         <div className="row offset-md-2 mt-4 justify-content-center">
           <button className="btn btn-outline-secondary mx-2" onClick={handleHomeClick}>Home</button>
