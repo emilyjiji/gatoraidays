@@ -86,11 +86,11 @@ const Main = () => {
         <div className="row">
           <div className="col-12 custom-main-container d-flex align-items-center justify-content-center" style={{ height: '85.5vh', backgroundColor: '#E8FFED', borderBottom: '1px solid #000' }}>
             <div>
-              <h1 className="text-center pb-4">Welcome To AdapTree!</h1>
+              <h1 className="text-center pb-4 ">Welcome To AdapTree!</h1>
               {formData && (
                 <div>
                   <h4 className="mt-4 pb-5 text-center">
-                    Here is an overview for your interest: {formData.interests}. Click on each leaf to learn more.
+                    Here is an overview for your interest: <strong>{formData.interests}</strong>. Click on each leaf to learn more.
                   </h4>
 
                 </div>

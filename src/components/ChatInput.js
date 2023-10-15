@@ -186,36 +186,17 @@ const ChatInput = ({ setIsTeachMeClicked, setTeachMeText }) => {
   return (
     <div className="container-fluid fixed-bottom mb-5">
     <div className="container-fluid">
-    {/* <div className="row mt-3">
-        <div className="col-12 offset-md-3 col-md-8 d-flex justify-content-between">
-          <div className="col">
-            <button className="btn btn-custom btn-block" onClick={handleHomeClick}>Home</button>
-          </div>
-          <div className="col">
-            <button className="btn btn-custom btn-block" onClick={handleTeachMeClick}>Teach Me!</button>
-          </div>
-          <div className="col">
-            <button className="btn btn-custom btn-block" onClick={handleAskMeClick}>Ask Me!</button>
-          </div>
-        </div>
-      </div> */}
       {/* Plain Text Container */}
       <div className="row">
         <div className="col-12 offset-md-3 col-md-8 d-flex justify-content-center">
           <p>{displayText}</p>
         </div>
       </div>
-      {/* Plain Text Container */}
-      {/* <div className="row">
-        <div className="col-12 offset-md-3 col-md-8 d-flex justify-content-center">
-          <p>{displayText}</p>
-        </div>
-      </div> */}
       <div className="container-fluid">
         <div className="row offset-md-2 mt-4 justify-content-center">
-          <button className="btn btn-outline-secondary mx-2" onClick={handleHomeClick}>Home</button>
-          <button className="btn btn-outline-secondary mx-2" onClick={handleTeachMeClick}>Teach Me!</button>
-          <button className="btn btn-outline-secondary mx-2" onClick={handleAskMeClick}>Ask Me!</button>
+          <button className="btn btn-custom btn-outline-secondary mx-2" style={{width: "200px"}} onClick={handleHomeClick}>Home</button>
+          <button className="btn btn-custom btn-outline-secondary mx-2" style={{width: "200px"}} onClick={handleTeachMeClick}>Teach Me!</button>
+          <button className="btn btn-custom btn-outline-secondary mx-2" style={{width: "200px"}} onClick={handleAskMeClick}>Ask Me!</button>
         </div>
       </div>
       <div className="row mt-4">

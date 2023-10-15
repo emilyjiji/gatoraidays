@@ -1,6 +1,6 @@
 import React from "react";
 import Main, {getInterestList, getFormData} from "./Main";
-
+import './custom.css'
 
 
 
@@ -20,14 +20,15 @@ const Sidebar = ({ handleNodeClick }) => {
       <div className="position-sticky">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <h4 className="mt-3">Past Interests</h4>
-            <hr style={{ background: "#fff", width: "100%", marginLeft: 0 }} />
+            <h4 className="mt-4 mb-4" style={{fontSize: "18px", textAlign: "center"}}>Past Interests</h4>
+            <hr style={{ background: "#fff", width: "100%", marginLeft: 0}} />
           </li>
           {getInterestList().map((item, index) => (
             <li className="nav-item" key={index}>
               <a
                 href="#"
                 className="nav-link"
+                style={{fontSize: "16px"}}
                 onClick={(event) => {
                   event.preventDefault();
                   handleNodeClick(item);}
