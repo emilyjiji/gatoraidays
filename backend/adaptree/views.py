@@ -129,3 +129,34 @@ def clicknode(request):
             return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
     else:
         return JsonResponse({'error': 'Invalid request method.'}, status=405)
+    
+@csrf_exempt
+def returnhome(request):
+    """{
+    "email": "idk@verizon.com",
+    }"""
+    if request.method == 'GET':
+        try:
+            # Parse JSON data sent from the client
+            data = json.loads(request.body)
+
+            # Check if the data contains a "value" key
+            if 'email' in data:
+
+                if AdapTree.objects.filter(email=data['email']).exists():
+                    record = AdapTree.objects.get(email=data['email'])
+                    data_dict = {"name": record.name, "major": record.major, "email": record.email}
+                    json_obj = json.dumps(data_dict, indent = 4)
+                    return JsonResponse(json_obj, safe=False) 
+                else:
+                    json_obj = json.dumps({}, indent = 4)
+                    return JsonResponse(json_obj, safe=False)
+
+
+            else:
+                return JsonResponse({'error': 'Missing "value" in data.'}, status=400)
+
+        except json.JSONDecodeError as e:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method.'}, status=405)

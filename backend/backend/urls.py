@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('create/', views.create, name='create'),
     path('interests/', views.interests, name='interests'),
-    path('clicknode/', views.clicknode, name='clicknode')
+    path('clicknode/', views.clicknode, name='clicknode'),
+    path('returnhome/', views.returnhome, name='returnhome')
 ]
