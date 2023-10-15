@@ -37,7 +37,7 @@ def create(request):
                     instance.save()
 
                 gptresponse = openai_integration.get_gpt_response(data['name'], data['major'], data['interests'])
-                json_obj = openai_integration.extract_branch(gptresponse)
+                json_obj = openai_integration.extract_branch(gptresponse, data['email'])
 
 
 

@@ -45,12 +45,14 @@ Branch 2.2 Description: [Brief Branch 2.2 Description]
         print(f"Error encountered: {e}")
         return None
 
-def extract_branch(text):
+def extract_branch(text, email):
     # Split the input text into lines
     lines = text.split('\n')
 
     # Initialize an empty dictionary to store the data
     data_dict = {}
+
+    data_dict["email"] = email
 
     for line in lines:
         # Use regular expressions to match lines with the format '[Branch Name]: [Brief Branch Description]'
