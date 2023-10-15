@@ -6,10 +6,13 @@ import ChatInput from "./ChatInput";
 const Main = () => {
   const location = useLocation();
   const formData = location.state ? location.state.formData : null;
+  const response = location.state ? location.state.response : null;
+
   console.log("Form Data: ",formData);
+  console.log("Response Data:", response);
 
   return (
-    <div className="main">
+    <div className="main ">
       <div className="container-fluid">
         <div className="row">
           {/* Sidebar */}

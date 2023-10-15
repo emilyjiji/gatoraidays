@@ -33,10 +33,11 @@ const Intro = () => {
         console.log("Data successfully sent to the server:", result);
         console.log(JSON.parse(result)["Branch 1.1"]);
         console.log(data);
+        navigate("/main", { state: { formData: data, response: result } });
       } else {
         console.error("Failed to send data to the server.");
       }
-      navigate("/main", { state: { formData: data } });
+      
     } catch (error) {
       console.error("An error occurred:", error);
     }
