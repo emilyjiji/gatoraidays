@@ -11,7 +11,7 @@ def get_gpt_response(user_name, user_major, user_interest):
     # Construct the prompt
     # Construct the prompt
     prompt_text = f"""For someone with a {user_major} background like {user_name}, provide a succinct overview on {user_interest}. 
-    Focus on one main topic, two primary subtopics, and two sub-branches for each primary subtopic. 
+    Focus on one main topic (branch 0), two primary subtopics, and two sub-branches for each primary subtopic. 
     The main topic should have an extended description. Description should try to relate concepts regarding {user_interest} to {user_major}.
     Main topic has two to three sentences. 
 
