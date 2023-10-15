@@ -44,18 +44,74 @@ const ChatInput = () => {
   };
 
   // Function for the "Teach Me!" button
-  const handleTeachMeClick = () => {
+  const handleTeachMeClick = async () => {
     console.log("Teach Me! button clicked");
 
+    var interest1 = getFormData().interests
+    var major1 = getFormData().major
+
+
+    // Create a data object with the form values
+    const data = {
+      interest: interest1,
+      major: major1
+    };
+
+    try {
+      const response = await fetch("http://localhost:8000/explainmore/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Data successfully sent to the server:", result);
+        console.log(data);
+      } else {
+        console.error("Failed to send data to the server.");
+      }
+
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
 
 
   };
 
   // Function for the "Ask Me!" button
-  const handleAskMeClick = () => {
+  const handleAskMeClick = async () => {
     console.log("Ask Me! button clicked");
 
+    var interest1 = getFormData().interests
 
+    // Create a data object with the form values
+    const data = {
+      interest: interest1
+    };
+
+    try {
+      const response = await fetch("http://localhost:8000/getquestion/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Data successfully sent to the server:", result);
+        console.log(data);
+      } else {
+        console.error("Failed to send data to the server.");
+      }
+
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
 
   };
 

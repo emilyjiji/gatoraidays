@@ -25,5 +25,6 @@ urlpatterns = [
     path('clicknode/', views.clicknode, name='clicknode'),
     path('returnhome/', views.returnhome, name='returnhome'),
     path('getquestion/', views.getquestion, name='getquestion'),
-    path('feedbackans/', views.feedbackans, name='feedbackans')
+    path('feedbackans/', views.feedbackans, name='feedbackans'),
+    path('explainmore/', views.explainmore, name='explainmore')
 ]
