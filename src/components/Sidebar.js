@@ -8,7 +8,7 @@ const Sidebar = () => {
         <ul className="nav flex-column">
           <li className="nav-item">
             <p className="mt-3">Past Interests</p>
-            <hr style={{ width: "96%", marginLeft: 0 }} />
+            <hr style={{ width: "96%"}} />
           </li>
           <li className="nav-item">
             <p>Option 1</p>

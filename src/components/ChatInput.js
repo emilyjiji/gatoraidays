@@ -11,12 +11,12 @@ const ChatInput = () => {
             <img
               src={process.env.PUBLIC_URL + '/images/main-nodes.png'}
               alt="Node Image"
-              style={{ width: "40%", height: "auto", marginLeft: "340px", marginBottom: "260px" }}
+              style={{ width: "40%", height: "auto", marginLeft: "523px", marginBottom: "260px" }}
             />
           </div>
         </div>
       </div>
-      <hr className="pb-4" style={{ width: "84vw", marginLeft: "330px"}} />
+      <hr className="pb-4" style={{ width: "84vw", marginLeft: "340px"}} />
       <div className="container-fluid">
         <div className="row offset-md-2 mt-4 justify-content-center">
           <button className="btn btn-outline-secondary mx-2">Quiz Me!</button>
