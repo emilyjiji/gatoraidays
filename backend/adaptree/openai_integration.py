@@ -89,7 +89,7 @@ def get_question(user_interest):
 def feedback_ans(stored_question, stored_answer, user_major):
     # Construct a prompt for feedback tailored to the user_major
     prompt_text = f"""For someone with a {user_major} background, provide feedback on the following response and create analogies and connections to {user_major}:\n\nResponse: {stored_answer}\n\nQuestion: {stored_question}
-    If the answer to the question is not fully correct, point out inaccuracies and explain in a friendly manner. Limit feedback to 200 characters."""
+    If the answer to the question is not fully correct, point out inaccuracies and explain in a friendly manner. Limit feedback to 200 characters. Use full sentences."""
 
     try:
         response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=prompt_text, max_tokens=1000)
