@@ -6,7 +6,7 @@ import './custom.css';
 
 console.log("GGGG")
 var formData;
-var response;
+var response1;
 var location;
 var interestList;
 var bool;
@@ -32,6 +32,7 @@ const handleNodeClick = async (node) => {
 
     if (response.ok) {
       const result = await response.json();
+      response1 = result;
       console.log("Data successfully sent to the server:", result);
       console.log(JSON.parse(result)["Branch 1.1"]);
       console.log(result);
@@ -62,16 +63,16 @@ const Main = () => {
   }, []);
     location = useLocation();
     formData = location.state ? location.state.formData : null;
-    response = location.state ? location.state.response : null;
+    response1 = location.state ? location.state.response : null;
 
     const [isTeachMeClicked, setIsTeachMeClicked] = useState(false);
     const [teachMeText, setTeachMeText] = useState("");
 
   //handleNodeClick("dogs")
   console.log("Form Data: ", formData);
-  console.log("Response Data:", response);
+  console.log("Response Data:", response1);
   if (!bool){
-    interestList = JSON.parse(response)["interests"];
+    interestList = JSON.parse(response1)["interests"];
     bool = true
   }
   
@@ -106,6 +107,39 @@ const Main = () => {
                                     {teachMeText}
                                 </div>
                             )}
+
+              <div className="container">
+                <label style={{fontSize: "28px", position: "relative", top: "-140px", left: "375px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 0"])}>
+                  {JSON.parse(response1)["Branch 0"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 0 Description"]}</span>
+                </label>
+                <label style={{fontSize: "20px", position: "relative", top: "-350px", left: "50px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 1"])}>
+                  {JSON.parse(response1)["Branch 1"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 1 Description"]}</span>
+                </label>
+                <label style={{fontSize: "20px", position: "relative", top: "-350px", left: "250px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 2"])}>
+                  {JSON.parse(response1)["Branch 2"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 2 Description"]}</span>
+                </label>
+                <label style={{fontSize: "10px", position: "relative", top: "-500px", left: "-300px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 1_1"])}>
+                  {JSON.parse(response1)["Branch 1_1"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 1_1 Description"]}</span>
+                </label>
+                <label style={{fontSize: "10px", position: "relative", top: "-500px", left: "-150px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 1_2"])}>
+                  {JSON.parse(response1)["Branch 1_2"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 1_2 Description"]}</span>
+                </label>
+                <label style={{fontSize: "10px", position: "relative", top: "-500px", left: "-100px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 2_1"])}>
+                  {JSON.parse(response1)["Branch 2_1"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 2_1 Description"]}</span>
+                </label>
+                <label style={{fontSize: "10px", position: "relative", top: "-500px", left: "50px"}} className="transparent-label" htmlFor="username" onClick={() => handleNodeClick(JSON.parse(response1)["Branch 2_2"])}>
+                  {JSON.parse(response1)["Branch 2_2"]}:
+                  <span className="popup">{JSON.parse(response1)["Branch 2_2 Description"]}</span>
+                </label>
+                
+              </div>
+
             </div>
           </div>
 

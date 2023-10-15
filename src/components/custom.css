@@ -31,4 +31,35 @@ custom-main-container {
     transition: opacity 1s ease-in-out; /* Add a smooth transition effect */
   }
   
+  .transparent-label {
+    background: transparent;
+    border: none;
+    cursor: help; /* Change cursor to a help pointer on hover */
+    position: relative;
+    color: white;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }
+  
+  /* Style for the popup */
+  .popup {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: #fff; /* Text color */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    bottom: 100%; /* Position above the label */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  
+  /* Show the popup on label hover */
+  .transparent-label:hover .popup {
+    visibility: visible;
+    opacity: 1;
+  }
   

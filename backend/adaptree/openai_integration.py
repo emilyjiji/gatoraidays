@@ -13,7 +13,7 @@ def get_gpt_response(user_name, user_major, user_interest):
     prompt_text = f"""For someone with a {user_major} background like {user_name}, provide a succinct overview on {user_interest}. 
     Focus on one main topic (branch 0), two primary subtopics, and two sub-branches for each primary subtopic. 
     The main topic should have an extended description. Description should try to relate concepts regarding {user_interest} to {user_major}.
-    Main topic has two to three sentences. 
+    Main topic has two to three sentences. Branch 0 Name must be the same as {user_interest}.
 
     Stick to the format:
 
