@@ -86,5 +86,18 @@ def get_question(user_interest):
         print(f"Error encountered: {e}")
         return None
 
-def feedback_ans(question, answer, major):
-    pass
+def feedback_ans(stored_question, stored_answer, user_major):
+    # Construct a prompt for feedback tailored to the user_major
+    prompt_text = f"""For someone with a {user_major} background, provide feedback on the following response and create analogies and connections to {user_major}:\n\nResponse: {stored_answer}\n\nQuestion: {stored_question}
+    If the answer to the question is not fully correct, point out inaccuracies and explain in a friendly manner"""
+
+    try:
+        response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=prompt_text, max_tokens=1000)
+        # Extract the response text
+        response_text = response.choices[0].text.strip()
+        data_dict = {"question": response_text}
+        return json.dumps(data_dict, indent = 4)
+
+    except openai.error.OpenAIError as e:
+        print(f"Error encountered: {e}")
+        return None
