@@ -1,5 +1,5 @@
 custom-main-container {
-   height: 84vh;
+   height: 86vh;
     border-bottom: 1px solid #000;
   
 }
@@ -21,3 +21,14 @@ custom-main-container {
     width: 100%; 
     max-width: 200px; 
   }
+
+  .ask-me-text {
+    margin-top: 20px; /* Adjust the value as needed to move the text down */
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Add a smooth transition effect */
+  }
+  
+  
