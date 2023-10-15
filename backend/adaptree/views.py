@@ -60,9 +60,9 @@ def create(request):
         return JsonResponse({'error': 'Invalid request method.'}, status=405)
 
 @csrf_exempt
-def interests(request):
+def getinterests(request):
     """{
-    "email": "idk@verizon.com",
+    "email": "idk@verizon.com"
     }"""
     if request.method == 'GET':
         try:
@@ -133,7 +133,7 @@ def clicknode(request):
 @csrf_exempt
 def returnhome(request):
     """{
-    "email": "idk@verizon.com",
+    "email": "idk@verizon.com"
     }"""
     if request.method == 'GET':
         try:
@@ -155,6 +155,44 @@ def returnhome(request):
 
             else:
                 return JsonResponse({'error': 'Missing "value" in data.'}, status=400)
+
+        except json.JSONDecodeError as e:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method.'}, status=405)
+    
+@csrf_exempt
+def getquestion(request):
+    """{
+    "interest": "lebron"
+    }"""
+    if request.method == 'GET':
+        try:
+            # Parse JSON data sent from the client
+            data = json.loads(request.body)
+
+            json_obj = openai_integration.get_question(data['interest'])
+            return JsonResponse(json_obj, safe=False)
+
+        except json.JSONDecodeError as e:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method.'}, status=405)
+    
+@csrf_exempt
+def feedbackans(request):
+    """{
+    "question": "who is lebron?",
+    "answer": "lebron is not the goat",
+    "major": "gender studies"
+    }"""
+    if request.method == 'GET':
+        try:
+            # Parse JSON data sent from the client
+            data = json.loads(request.body)
+
+            json_obj = openai_integration.feedback_ans(data['question'], data['answer'], data['major'])
+            return JsonResponse(json_obj, safe=False)
 
         except json.JSONDecodeError as e:
             return JsonResponse({'error': 'Invalid JSON data.'}, status=400)

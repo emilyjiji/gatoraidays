@@ -72,3 +72,8 @@ def extract_branch(text, email):
 
     return json_object
 
+def get_question(interest):
+    pass
+
+def feedback_ans(question, answer, major):
+    pass
