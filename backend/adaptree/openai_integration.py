@@ -26,17 +26,17 @@ Branch 1 Description: [Brief Branch 1 Description]
 Branch 2: [Branch 2 Name]
 Branch 2 Description: [Brief Branch 2 Description]
 
-Branch 1.1: [Branch 1.1 Name]
-Branch 1.1 Description: [Brief Branch 1.1 Description]
+Branch 1_1: [Branch 1_1 Name]
+Branch 1_1 Description: [Brief Branch 1_1 Description]
 
-Branch 1.2: [Branch 1.2 Name]
-Branch 1.2 Description: [Brief Branch 1.2 Description]
+Branch 1_2: [Branch 1_2 Name]
+Branch 1_2 Description: [Brief Branch 1_2 Description]
 
-Branch 2.1: [Branch 2.1 Name]
-Branch 2.1 Description: [Brief Branch 2.1 Description]
+Branch 2_1: [Branch 2_1 Name]
+Branch 2_1 Description: [Brief Branch 2_1 Description]
 
-Branch 2.2: [Branch 2.2 Name]
-Branch 2.2 Description: [Brief Branch 2.2 Description]
+Branch 2_2: [Branch 2_2 Name]
+Branch 2_2 Description: [Brief Branch 2_2 Description]
 
 """
 
