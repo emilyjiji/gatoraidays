@@ -1,12 +1,15 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import ChatInput from "./ChatInput";
 import './custom.css';
 
+console.log("GGGG")
 var formData;
 var response;
 var location;
+var interestList;
+var bool;
 
 const handleNodeClick = async (node) => {
   console.log(`Clicked on node: ${node}`);
@@ -31,9 +34,13 @@ const handleNodeClick = async (node) => {
       const result = await response.json();
       console.log("Data successfully sent to the server:", result);
       console.log(JSON.parse(result)["Branch 1.1"]);
+      console.log(result);
       console.log(data);
       location.state.response = result;
       formData = data
+      interestList = JSON.parse(result)["interests"]
+      console.log("Interest List: ", interestList)
+      console.log("40")
       location.state.formData = formData;
       console.log("the formdata", formData)
       //navigate("/main", { state: { formData: data, response: result } });
@@ -49,6 +56,10 @@ const handleNodeClick = async (node) => {
 
 
 const Main = () => {
+  useEffect(() => {
+    // Your code here will run once on component mount or page load
+    bool = false;
+  }, []);
     location = useLocation();
     formData = location.state ? location.state.formData : null;
     response = location.state ? location.state.response : null;
@@ -59,11 +70,16 @@ const Main = () => {
   //handleNodeClick("dogs")
   console.log("Form Data: ", formData);
   console.log("Response Data:", response);
+  if (!bool){
+    interestList = JSON.parse(response)["interests"];
+    bool = true
+  }
+  
 
   return (
     <div className="main d-flex">
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar handleNodeClick={handleNodeClick}/>
 
       <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div className="row">
@@ -102,6 +118,10 @@ const Main = () => {
 
 export const getFormData = () => {
   return formData;
+};
+
+export const getInterestList = () => {
+  return interestList;
 };
 
 export default Main;

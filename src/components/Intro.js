@@ -10,20 +10,31 @@ const Intro = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
-  const response = location.state ? JSON.parse(location.state.response) : null;
+  const response1 = location.state ? JSON.parse(location.state.response) : null;
+
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Create a data object with the form values
-    const data = {
-      name: name,
-      email: email,
-      major: major,
-      interests: interest,
-    };
+    
 
     try {
+      console.log(response1)
+      if (response1) {
+        console.log("Before", name, email, major)
+        setName(response1.name)
+        setEmail(response1.email)
+        setMajor(response1.major)
+        console.log("After", name, email, major)
+      }
+      const data = {
+        name: name,
+        email: email,
+        major: major,
+        interests: interest,
+      };
       const response = await fetch("http://localhost:8000/create/", {
         method: "POST",
         headers: {
@@ -65,7 +76,7 @@ const Intro = () => {
               className="form-control"
               style={{ borderRadius: "25px", borderColor:"black" }}
               onChange={(e) => setName(e.target.value)}
-              defaultValue={response ? response.name : null}
+              defaultValue={response1 ? response1.name : null}
             />
           </div>
 
@@ -79,7 +90,7 @@ const Intro = () => {
               className="form-control"
               style={{ borderRadius: "25px", borderColor:"black" }}
               onChange={(e) => setEmail(e.target.value)}
-              defaultValue={response ? response.email : null}
+              defaultValue={response1 ? response1.email : null}
             />
           </div>
 
@@ -93,7 +104,7 @@ const Intro = () => {
               className="form-control"
               style={{ borderRadius: "25px", borderColor:"black" }}
               onChange={(e) => setMajor(e.target.value)}
-              defaultValue={response ? response.major : null}
+              defaultValue={response1 ? response1.major : null}
             />
           </div>
 

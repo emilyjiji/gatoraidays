@@ -36,6 +36,8 @@ def create(request):
                 #                     interests=data['interests'])
                 #     instance.save()
 
+                interest_list = None
+
                 if AdapTree.objects.filter(email=data['email']).exists():
                     record = AdapTree.objects.get(email=data['email'])
                     record.name = data['name']
@@ -43,14 +45,18 @@ def create(request):
                     if data['interests'] not in record.interests:
                         record.interests.append(data['interests']) #= record.interests['interests'].append(data['interests'])
                     record.save()
+                    interest_list = record.interests
+                    
+
 
                 else:
                     instance = AdapTree(email=data['email'], name=data['name'], major=data['major'],
                                     interests=[data['interests']])
+                    interest_list = [data['interests']]
                     instance.save()
 
                 gptresponse = openai_integration.get_gpt_response(data['name'], data['major'], data['interests'])
-                json_obj = openai_integration.extract_branch(gptresponse, data['email'])
+                json_obj = openai_integration.extract_branch(gptresponse, data['email'], interest_list)
 
 
 
