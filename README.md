@@ -1,10 +1,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
+  <a href="https://github.com/emilyjiji/gatoraidays">
+    <img src="images/adaptree-logo.png" alt="Logo" width="80" height="80">
+  </a>
   <h3 align="center">AdapTree</h3>
 
   <p align="center">
-    Tailored Educational Experience with a Conversational Twist
+    Cultivating Personalized Learning Through Engaging Dialogues
   </p>
 </p>
 
@@ -23,7 +26,7 @@
 ## About The Project
 AdapTree seeks to provide users with tailored educational content. Upon inputting their name, major, and field of interest, a knowledge tree is generated, which they can traverse, branch out, and delve deeper into topics of their choice. Every node is designed to offer both descriptions and the ability to spawn new learning paths. The tool is underpinned by a smart analogy-driven engine that contextualizes information based on the learner's background.
 
-![AdapTree Screenshot](URL_TO_YOUR_SCREENSHOT)
+<img src="images/welcome-page.png" alt="Logo" width="600" height="350">
 
 ## Built With
 - PostgreSQL
