@@ -162,7 +162,7 @@ def returnhome(request):
     "major": "pepsi",
     "email": "lebrone@raymone.cum"
     }"""
-    if request.method == 'GET':
+    if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
             data = json.loads(request.body)
@@ -200,7 +200,7 @@ def getquestion(request):
     "question" : "what is aaaaaaaahhhh?"
     }
     """
-    if request.method == 'GET':
+    if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
             data = json.loads(request.body)
@@ -227,7 +227,7 @@ def feedbackans(request):
     "feedback": "that's a good answer!"
     }
     """
-    if request.method == 'GET':
+    if request.method == 'POST':
         try:
             # Parse JSON data sent from the client
             data = json.loads(request.body)

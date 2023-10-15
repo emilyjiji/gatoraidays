@@ -4,10 +4,13 @@ import Sidebar from "./Sidebar";
 import ChatInput from "./ChatInput";
 import './custom.css';
 
+var formData;
+var response; 
+
 const Main = () => {
     const location = useLocation();
-    const formData = location.state ? location.state.formData : null;
-    const response = location.state ? location.state.response : null;
+    formData = location.state ? location.state.formData : null;
+    response = location.state ? location.state.response : null;
 
     console.log("Form Data: ", formData);
     console.log("Response Data:", response);
@@ -38,6 +41,10 @@ const Main = () => {
             <ChatInput />
         </div>
     );
+};
+
+export const getFormData = () => {
+  return formData;
 };
 
 export default Main;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const Intro = () => {
   const [name, setName] = useState("");
@@ -7,6 +8,9 @@ const Intro = () => {
   const [major, setMajor] = useState("");
   const [interest, setInterest] = useState("");
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const response = location.state ? JSON.parse(location.state.response) : null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +65,7 @@ const Intro = () => {
               className="form-control"
               style={{ borderRadius: "25px", borderColor:"black" }}
               onChange={(e) => setName(e.target.value)}
+              defaultValue={response ? response.name : null}
             />
           </div>
 
@@ -74,6 +79,7 @@ const Intro = () => {
               className="form-control"
               style={{ borderRadius: "25px", borderColor:"black" }}
               onChange={(e) => setEmail(e.target.value)}
+              defaultValue={response ? response.email : null}
             />
           </div>
 
@@ -87,6 +93,7 @@ const Intro = () => {
               className="form-control"
               style={{ borderRadius: "25px", borderColor:"black" }}
               onChange={(e) => setMajor(e.target.value)}
+              defaultValue={response ? response.major : null}
             />
           </div>
 
