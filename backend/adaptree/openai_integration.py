@@ -89,7 +89,7 @@ def get_question(user_interest):
 def feedback_ans(stored_question, stored_answer, user_major):
     # Construct a prompt for feedback tailored to the user_major
     prompt_text = f"""For someone with a {user_major} background, provide feedback on the following response and create analogies and connections to {user_major}:\n\nResponse: {stored_answer}\n\nQuestion: {stored_question}
-    If the answer to the question is not fully correct, point out inaccuracies and explain in a friendly manner"""
+    If the answer to the question is not fully correct, point out inaccuracies and explain in a friendly manner. Limit feedback to 200 characters."""
 
     try:
         response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=prompt_text, max_tokens=1000)
@@ -106,14 +106,15 @@ def explain_more(user_interest, user_major):
     prompt_text = f"""Explain the topic of '{user_interest}' comprehensively. 
     Create analogies and connections to {user_major} where possible to enhance learning experience. :
 
-General overview. Title field [General overview:]
-[Provide a general overview of the topic in 5+ sentences.]
+General Overview. Title field [General Overview:]
+[Provide a general overview of the topic in 3 short sentences. ends sentence with a "\n"]
 
-Relationship to your background. Title field [Background Relationship:]
-[Explain how the topic of '{user_interest}' relates to {user_major}.]
+Relationship to your Background. Title field [Background Relationship:]
+[Explain how the topic of '{user_interest}' relates to {user_major} in a concise format. ends sentence with a "\n"]
 
-Additional fields to be explored. Title field [Further Directions:]
-[List 5 bullet points of fields or subtopics related to '{user_interest}' that the user can explore.]
+Additional Fields to be Explored. Title field [Further Directions:]
+[List 3 bullet points of fields or subtopics related to '{user_interest}' that the user can explore.
+Only include the bullet points, do not add their descriptions. ends sentence with a "\n"]
 
 """
 
