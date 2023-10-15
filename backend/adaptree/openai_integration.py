@@ -26,17 +26,17 @@ Branch 1 Description: [Brief Branch 1 Description]
 Branch 2: [Branch 2 Name]
 Branch 2 Description: [Brief Branch 2 Description]
 
-Branch 1.1: [Branch 1.1 Name]
-Branch 1.1 Description: [Brief Branch 1.1 Description]
+Branch 1_1: [Branch 1_1 Name]
+Branch 1_1 Description: [Brief Branch 1_1 Description]
 
-Branch 1.2: [Branch 1.2 Name]
-Branch 1.2 Description: [Brief Branch 1.2 Description]
+Branch 1_2: [Branch 1_2 Name]
+Branch 1_2 Description: [Brief Branch 1_2 Description]
 
-Branch 2.1: [Branch 2.1 Name]
-Branch 2.1 Description: [Brief Branch 2.1 Description]
+Branch 2_1: [Branch 2_1 Name]
+Branch 2_1 Description: [Brief Branch 2_1 Description]
 
-Branch 2.2: [Branch 2.2 Name]
-Branch 2.2 Description: [Brief Branch 2.2 Description]
+Branch 2_2: [Branch 2_2 Name]
+Branch 2_2 Description: [Brief Branch 2_2 Description]
 
 """
 
@@ -72,8 +72,19 @@ def extract_branch(text, email):
 
     return json_object
 
-def get_question(interest):
-    pass
+def get_question(user_interest):
+    prompt_text = f"Generate a simple question about {user_interest} for someone with little expertise on the field."
+
+    try:
+        response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=prompt_text, max_tokens=1000)
+        # Extract the response text
+        response_text = response.choices[0].text.strip()
+        data_dict = {"question": response_text}
+        return json.dumps(data_dict, indent = 4)
+
+    except openai.error.OpenAIError as e:
+        print(f"Error encountered: {e}")
+        return None
 
 def feedback_ans(question, answer, major):
     pass
