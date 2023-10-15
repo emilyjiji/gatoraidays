@@ -11,6 +11,8 @@ const Main = () => {
     const location = useLocation();
     formData = location.state ? location.state.formData : null;
     response = location.state ? location.state.response : null;
+    var gg = JSON.parse(response)
+    response = gg
 
     console.log("Form Data: ", formData);
     console.log("Response Data:", response);
