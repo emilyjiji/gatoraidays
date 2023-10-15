@@ -203,11 +203,11 @@ const ChatInput = () => {
         </div>
       </div>
       {/* Plain Text Container */}
-      <div className="row">
+      {/* <div className="row">
         <div className="col-12 offset-md-3 col-md-8 d-flex justify-content-center">
           <p>{displayText}</p>
         </div>
-      </div>
+      </div> */}
       <div className="container-fluid">
         <div className="row offset-md-2 mt-4 justify-content-center">
           <button className="btn btn-outline-secondary mx-2" onClick={handleHomeClick}>Home</button>
