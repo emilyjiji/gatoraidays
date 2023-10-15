@@ -3,3 +3,21 @@ custom-main-container {
     border-bottom: 1px solid #000;
   
 }
+.btn-custom {
+    background-color: #0F2D25;
+    border-color: #0F2D25;
+    color: white;
+    width: '100px';
+  }
+  
+  /* Add a hover effect */
+  .btn-custom:hover {
+    background-color: #E0E0E0; 
+    border-color: #E0E0E0;
+    color: #333; 
+  }
+
+  .custom-width {
+    width: 100%; 
+    max-width: 200px; 
+  }

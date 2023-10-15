@@ -11,8 +11,6 @@ const Main = () => {
     const location = useLocation();
     formData = location.state ? location.state.formData : null;
     response = location.state ? location.state.response : null;
-    var gg = JSON.parse(response)
-    response = gg
 
   console.log("Form Data: ", formData);
   console.log("Response Data:", response);
@@ -26,17 +24,17 @@ const Main = () => {
         <div className="row">
           <div className="col-12 custom-main-container d-flex align-items-center justify-content-center" style={{ height: '84vh', backgroundColor: '#E8FFED', borderBottom: '1px solid #000' }}>
             <div>
-              <h1 className="text-center pb-4">Welcome To AdapTree!!!</h1>
+              <h1 className="text-center pb-4">Welcome To AdapTree!</h1>
               {formData && (
                 <div>
                 <h4 className="mt-4 pb-5">
-  Here is an overview for your interest: {formData.interests}! Click on the leaf to learn more.
+  Here is an overview for your interest: {formData.interests}. Click on each leaf to learn more.
 </h4>
 
                 </div>
             )}
             <img
-          src={process.env.PUBLIC_URL + '/images/main-nodes.png'}
+          src={process.env.PUBLIC_URL + '/images/main.png'}
           alt="Node Image"
           style={{ width: "100%", height: "auto" }} />
             </div>
@@ -54,29 +52,5 @@ export const getFormData = () => {
 };
 
 export default Main;
-
-
-{/* <div className="container-fluid">
-<div className="row ">
-
-    <Sidebar />
-
- 
-    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex justify-content-center mt-5">
-        <div style={{ width: "100%", textAlign: "center", marginLeft: "10px", }}>
-            <h1>Welcome To AdapTree!!!</h1>
-            {formData && (
-                <div>
-                    <h4 className="mt-4">
-                        Here is an overview for your interest: {formData.interest}
-                        Click on the leaf to learn more:
-                    </h4>
-                </div>
-            )}
-        </div>
-    </main>
-</div>
-</div>
-<ChatInput /> */}
 
 
