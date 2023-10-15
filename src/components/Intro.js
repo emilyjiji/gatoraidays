@@ -16,7 +16,7 @@ const Intro = () => {
       name: name,
       email: email,
       major: major,
-      interest: interest,
+      interests: interest,
     };
 
     try {
@@ -31,10 +31,12 @@ const Intro = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Data successfully sent to the server:", result);
+        console.log(JSON.parse(result)["Branch 1.1"]);
+        console.log(data);
       } else {
         console.error("Failed to send data to the server.");
       }
-      navigate("/main");
+      navigate("/main", { state: { formData: data } });
     } catch (error) {
       console.error("An error occurred:", error);
     }
