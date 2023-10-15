@@ -6,15 +6,57 @@ import './custom.css';
 
 var formData;
 var response;
+var location;
+
+const handleNodeClick = async (node) => {
+  console.log(`Clicked on node: ${node}`);
+  // Handle node click logic here
+  const data = {
+    name: formData.name,
+    email: formData.email,
+    major: formData.major,
+    interests: node,
+  };
+
+  try {
+    const response = await fetch("http://localhost:8000/create/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log("Data successfully sent to the server:", result);
+      console.log(JSON.parse(result)["Branch 1.1"]);
+      console.log(data);
+      location.state.response = result;
+      formData = data
+      location.state.formData = formData;
+      console.log("the formdata", formData)
+      //navigate("/main", { state: { formData: data, response: result } });
+    } else {
+      console.error("Failed to send data to the server.");
+    }
+    
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+
+}
+
 
 const Main = () => {
-    const location = useLocation();
+    location = useLocation();
     formData = location.state ? location.state.formData : null;
     response = location.state ? location.state.response : null;
 
     const [isTeachMeClicked, setIsTeachMeClicked] = useState(false);
     const [teachMeText, setTeachMeText] = useState("");
 
+  //handleNodeClick("dogs")
   console.log("Form Data: ", formData);
   console.log("Response Data:", response);
 
