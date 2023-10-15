@@ -239,3 +239,29 @@ def feedbackans(request):
             return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
     else:
         return JsonResponse({'error': 'Invalid request method.'}, status=405)
+    
+@csrf_exempt
+def explainmore(request):
+    """
+    REQUEST
+    {
+    "interest": "bronny james",
+    "major": "gender studies"
+    }
+    RESPONSE
+    {
+    "explanation": "1. blah 2. blah..."
+    }
+    """
+    if request.method == 'POST':
+        try:
+            # Parse JSON data sent from the client
+            data = json.loads(request.body)
+
+            json_obj = openai_integration.explain_more(data['interest'], data['major'])
+            return JsonResponse(json_obj, safe=False)
+
+        except json.JSONDecodeError as e:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method.'}, status=405)

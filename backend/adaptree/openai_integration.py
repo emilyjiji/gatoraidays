@@ -95,9 +95,36 @@ def feedback_ans(stored_question, stored_answer, user_major):
         response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=prompt_text, max_tokens=1000)
         # Extract the response text
         response_text = response.choices[0].text.strip()
-        data_dict = {"question": response_text}
+        data_dict = {"feedback": response_text}
         return json.dumps(data_dict, indent = 4)
 
     except openai.error.OpenAIError as e:
         print(f"Error encountered: {e}")
         return None
+    
+def explain_more(user_interest, user_major):
+    prompt_text = f"""Explain the topic of '{user_interest}' comprehensively. 
+    Create analogies and connections to {user_major} where possible to enhance learning experience. :
+
+General overview. Title field [General overview:]
+[Provide a general overview of the topic in 5+ sentences.]
+
+Relationship to your background. Title field [Background Relationship:]
+[Explain how the topic of '{user_interest}' relates to {user_major}.]
+
+Additional fields to be explored. Title field [Further Directions:]
+[List 5 bullet points of fields or subtopics related to '{user_interest}' that the user can explore.]
+
+"""
+
+    try:
+        response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=prompt_text, max_tokens=1000)
+        # Extract the response text
+        response_text = response.choices[0].text.strip()
+        data_dict = {"explanation": response_text}
+        return json.dumps(data_dict, indent = 4)
+
+    except openai.error.OpenAIError as e:
+        print(f"Error encountered: {e}")
+        return None
+    
