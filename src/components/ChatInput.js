@@ -5,10 +5,11 @@ import './custom.css';
 
 var stored_question = ""
 
-const ChatInput = () => {
+const ChatInput = ({ setIsTeachMeClicked, setTeachMeText }) => {
   const [displayText, setDisplayText] = useState("Select nodes to explore your interests!");
   const [entryDisplayText, setEntryDisplayText] = useState("Welcome to AdapTree");
   const [textInput, setTextInput] = useState("");
+  //const [teachMeText, setTeachMeText] = useState("");
 
   const navigate = useNavigate();
 
@@ -52,6 +53,7 @@ const ChatInput = () => {
   // Function for the "Teach Me!" button
   const handleTeachMeClick = async () => {
     console.log("Teach Me! button clicked");
+    setIsTeachMeClicked(true);
 
     var interest1 = getFormData().interests
     var major1 = getFormData().major
@@ -86,7 +88,8 @@ const ChatInput = () => {
           .replace("Additional:", "Additional:\n")
           .replace("Explored:", "Explored:\n");
         var why = modifiedString.split('\n').map(str => <p>{str}</p>);
-        setDisplayText(why);
+        setTeachMeText(why); 
+        //setDisplayText(why);
         console.log(modifiedString)
       } else {
         console.error("Failed to send data to the server.");
