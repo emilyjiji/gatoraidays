@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Main, { getFormData } from "./Main";
 import { useNavigate } from 'react-router-dom';
 
+var stored_question = ""
 
 const ChatInput = () => {
+  const [displayText, setDisplayText] = useState("Select nodes to explore your interests!");
+  const [entryDisplayText, setEntryDisplayText] = useState("Welcome to AdapTree");
+  const [textInput, setTextInput] = useState("");
+
   const navigate = useNavigate();
 
   
@@ -70,6 +75,7 @@ const ChatInput = () => {
         const result = await response.json();
         console.log("Data successfully sent to the server:", result);
         console.log(data);
+        setDisplayText(JSON.parse(result).explanation);
       } else {
         console.error("Failed to send data to the server.");
       }
@@ -105,6 +111,9 @@ const ChatInput = () => {
         const result = await response.json();
         console.log("Data successfully sent to the server:", result);
         console.log(data);
+        stored_question = JSON.parse(result).question
+        setDisplayText(stored_question);
+        setEntryDisplayText("Submit your answer to the question here!")
       } else {
         console.error("Failed to send data to the server.");
       }
@@ -113,6 +122,50 @@ const ChatInput = () => {
       console.error("An error occurred:", error);
     }
 
+  };
+
+  const handleAnswerFeedback = async (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent the default Enter key behavior
+
+      var major1 = getFormData().major
+
+
+      const data = {
+        question: stored_question,
+        answer: textInput,
+        major: major1
+      };
+  
+      try {
+        const response = await fetch("http://localhost:8000/feedbackans/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+  
+        if (response.ok) {
+          const result = await response.json();
+          console.log("Data successfully sent to the server:", result);
+          console.log(data);
+          setDisplayText(JSON.parse(result).feedback);
+          setTextInput("");
+          setEntryDisplayText("Review feedback for your response!")
+        } else {
+          console.error("Failed to send data to the server.");
+        }
+  
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+
+
+      
+
+
+    }
   };
 
   return (
@@ -127,6 +180,12 @@ const ChatInput = () => {
               style={{ width: "40%", height: "auto", marginLeft: "523px", marginBottom: "260px" }}
             />
           </div>
+        </div>
+      </div>
+      {/* Plain Text Container */}
+      <div className="row">
+        <div className="col-12 offset-md-3 col-md-8 d-flex justify-content-center">
+          <p>{displayText}</p>
         </div>
       </div>
       <div className="container-fluid">
@@ -145,7 +204,10 @@ const ChatInput = () => {
               maxWidth: "1000px",
               borderRadius: "4px",
             }}
-            placeholder="Enter the topic you want to explore next..."
+            placeholder={entryDisplayText}
+            value={textInput}
+            onChange={(e) => setTextInput(e.target.value)}
+            onKeyDown={handleAnswerFeedback}
           />
         </div>
       </div>
