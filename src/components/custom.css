@@ -43,18 +43,20 @@ custom-main-container {
   /* Style for the popup */
   .popup {
     position: absolute;
+    z-index: 1;
     background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     color: #fff; /* Text color */
     padding: 5px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 20px;
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
     bottom: 100%; /* Position above the label */
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap;
+    white-space: pre-line;
+    width: 500px;
   }
   
   /* Show the popup on label hover */
