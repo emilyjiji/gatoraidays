@@ -9,10 +9,16 @@ openai.api_key = settings.OPENAI_API_KEY
 
 def get_gpt_response(user_name, user_major, user_interest):
     # Construct the prompt
-    prompt_text = f"""For someone with a {user_major} background like {user_name}, provide a succinct overview on {user_interest}. Focus on one main topic, two primary subtopics, and two sub-branches for each primary subtopic. Stick to the format:
-    
+    # Construct the prompt
+    prompt_text = f"""For someone with a {user_major} background like {user_name}, provide a succinct overview on {user_interest}. 
+    Focus on one main topic, two primary subtopics, and two sub-branches for each primary subtopic. 
+    The main topic should have an extended description. Description should try to relate concepts regarding {user_interest} to {user_major}.
+    Main topic has two to three sentences. 
+
+    Stick to the format:
+
 Branch 0: [Branch 0 Name] 
-Branch 0 Description: [Brief Branch 0 Description]
+Branch 0 Description: [Extended Description of {user_interest}. Explanation draws connections to {user_major}]
 
 Branch 1: [Branch 1 Name]
 Branch 1 Description: [Brief Branch 1 Description]
@@ -66,3 +72,8 @@ def extract_branch(text, email):
 
     return json_object
 
+def get_question(interest):
+    pass
+
+def feedback_ans(question, answer, major):
+    pass

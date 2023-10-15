@@ -20,5 +20,10 @@ from adaptree import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create/', views.create, name='create')
+    path('create/', views.create, name='create'),
+    path('interests/', views.getinterests, name='interests'),
+    path('clicknode/', views.clicknode, name='clicknode'),
+    path('returnhome/', views.returnhome, name='returnhome'),
+    path('getquestion/', views.getquestion, name='getquestion'),
+    path('feedbackans/', views.feedbackans, name='feedbackans')
 ]
