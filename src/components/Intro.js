@@ -62,8 +62,8 @@ const Intro = () => {
     <div style={{ width: "95%", margin: "0 auto", minHeight: "100vh", backgroundColor: "#E8FFED"}} className="d-flex align-items-center justify-content-center" >
       <div className="p-3" style={{ margin: "0 50px", padding: "20px" }}>
         <h1 className="mt-5" style={{ fontSize: "50px", marginBottom: "35px", fontFamily: 'Jaques Francois', textShadow: '1px 1px 1px #000'}}>Welcome to AdapTree!</h1>
-        <p style={{ fontSize: "23px", marginBottom: "60px", fontFamily: 'Jaques Francois'}}>
-          Welcome to our website. Please fill out the following form to get started.
+        <p style={{ fontSize: "22px", marginBottom: "60px", fontFamily: 'Jaques Francois'}}>
+        Enter your name, major, and field of interest, to be presented with a dynamic knowledge tree crafted specifically for your background.
         </p>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
