@@ -1,81 +1,95 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/emilyjiji/gatoraidays">
-    <img src="images/adaptree-logo.png" alt="Logo" width="80" height="80">
-  </a>
-  <h3 align="center">AdapTree</h3>
+<div align="center">
 
-  <p align="center">
-    Cultivating Personalized Learning Through Engaging Dialogues
-  </p>
-</p>
+<!-- Replace with your own banner/logo path -->
+<img src="banner.svg" alt="AdapTree Logo">
 
-## Table of Contents
-- [About The Project](#about-the-project)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-  * [Dependencies](#dependencies)
-  * [Installation](#installation)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [License](#license)
-- [Authors](#authors)
-- [Acknowledgements](#acknowledgements)
+*Cultivating Personalized Learning Through Engaging Dialogues*
 
-## About The Project
-AdapTree seeks to provide users with tailored educational content. Upon inputting their name, major, and field of interest, a knowledge tree is generated, which they can traverse, branch out, and delve deeper into topics of their choice. Every node is designed to offer both descriptions and the ability to spawn new learning paths. The tool is underpinned by a smart analogy-driven engine that contextualizes information based on the learner's background.
+<!-- Badges (edit links as needed) -->
+[![Frontend](https://img.shields.io/badge/frontend-React-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![Backend](https://img.shields.io/badge/backend-Django-0C4B33?logo=django&logoColor=white)](https://www.djangoproject.com/)
+<a href="https://devpost.com/software/adaptree">
+  <img alt="Devpost" src="https://img.shields.io/badge/Devpost-Project-003E54?logo=devpost&logoColor=white">
+</a>
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-<img src="images/welcome-page.png" alt="Logo" width="600" height="350">
+</div>
 
-## Built With
-- PostgreSQL
-- React
-- Django
 
-## Getting Started
-Follow the instructions to get AdapTree up and running on your local machine.
+### 🌳 Overview
 
-### Dependencies
-- PostgreSQL
-- React
-- Django
+**AdapTree** generates a personalized **knowledge tree** based on a learner’s name, major, and interests, then lets them explore, branch, and go deeper through interactive nodes.  
+Each node provides approachable explanations and can spawn new learning paths, powered by an **analogy-driven engine** that contextualizes information using the learner’s background.
 
-### Installation
-1. Clone the AdapTree repository:
-   ```
-   git clone https://github.com/emilyjiji/gatoraidays.git
-   ```
-2. Navigate to the project directory and install the required packages:
-   ```bash
-   cd AdapTree
-   pip install -r requirements.txt
-   ```
-3. Make migrations and run the server:
-   ```bash
-   python manage.py makemigrations
-   python manage.py migrate
-   python manage.py runserver
-   ```
+<div align="center">
+  <img src="images/welcome-page.png" alt="Welcome Page" width="600" height="350">
+</div>
 
-## Usage
-Detailed instructions on how to use AdapTree can be found [here](URL_TO_YOUR_INSTRUCTIONS).
 
-## Roadmap
+## Quick Start
+
+Follow the steps below to run AdapTree locally.
+
+### (1) 🧰 Install Dependencies
+
+Make sure you have:
+
+- **PostgreSQL**
+- **Python** + **pip**
+- **Django** (installed via requirements)
+- **React** (if running the frontend separately in your setup)
+
+### (2) 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/emilyjiji/gatoraidays.git
+```
+
+Navigate to the project directory and install requirements:
+
+```bash
+cd AdapTree
+pip install -r requirements.txt
+```
+
+Run migrations and start the server:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+## 🧩 Tech Stack
+
+| Component   | Technology   |
+| ----------- | ------------ |
+| 🖥️ Frontend | React        |
+| 🧠 Backend  | Django       |
+| 🗄️ Database | PostgreSQL   |
+
+
+
+## 🛣️ Roadmap
+
 - Integrate multimedia content to enhance the learning experience.
 - Develop an AI-driven quiz section to reinforce learned concepts.
-- Gamify the learning experience, introducing rewards and milestones to motivate users.
-- Implement a profile system, allowing users to track their progress and review recently covered topics.
+- Gamify learning with rewards and milestones.
+- Implement user profiles for progress tracking and review history.
 
-## License
-Distributed under the MIT License. See `LICENSE` for more information.
 
-## Authors
-- [Anirudh Tammisetti](https://github.com/anirudh343)
-- [Emily Jiji](https://github.com/emilyjiji)
-- [Matheus Kunzler Maldaner](https://github.com/matheusmaldaner)
-- [Rahul Chari](https://github.com/rah-1)
+## 📄 License
 
-## Acknowledgements
-- The Verizon Hackathon Team for the opportunity.
-- Marston Library for providing a working space.
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+
+
+## 👥 Authors
+
+- Anirudh Tammisetti — [GitHub](https://github.com/anirudh343)  
+- Emily Jiji — [GitHub](https://github.com/emilyjiji)  
+- Matheus Kunzler Maldaner — [GitHub](https://github.com/matheusmaldaner)  
+- Rahul Chari — [GitHub](https://github.com/rah-1)
+
